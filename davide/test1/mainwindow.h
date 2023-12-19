@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <genericqueque.h>
+#include <workerqueque.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -19,5 +21,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void done1(const int number);
+    void done2(const int number);
+    GenericQueque genericQ1;
+    GenericQueque genericQ2;
 };
 #endif // MAINWINDOW_H

@@ -10,11 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     buttongroup.cpp \
+    customio.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     buttongroup.h \
+    customio.h \
     mainwindow.h
 
 FORMS += \
@@ -24,3 +26,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Resources.qrc

@@ -1,0 +1,18 @@
+{
+    "sensors": [
+        {
+            "name": "Sensore 1",
+            "description": "Una descrizione casuale",
+            "min_range": -10,
+            "max_range": 50,
+            "category_id": "temperature"
+        }
+    ],
+    "categories": {
+        "temperature": {
+            "name": "Temperature",
+            "description": "Una descrizione per la categoria",
+            "unit": "°C"
+        }
+    }
+}

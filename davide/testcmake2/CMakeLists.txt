@@ -22,6 +22,14 @@ set(PROJECT_SOURCES
         view/mainview/SideBarWidget.h
         view/mainview/MainContentWidget.cpp
         view/mainview/MainContentWidget.h
+        view/mainview/ModifyView.cpp
+        view/mainview/ModifyView.h
+        view/mainview/CreateView.cpp
+        view/mainview/CreateView.h
+        view/mainview/ViewAbstract.cpp
+        view/mainview/ViewAbstract.h
+        view/mainview/ContainerManagerAbstract.cpp
+        view/mainview/ContainerManagerAbstract.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

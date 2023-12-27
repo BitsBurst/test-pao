@@ -12,10 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     //Override CentralWidget
     fake_widget->setLayout(h_layout);
     fake_widget->setSizePolicy(QSizePolicy ::Maximum , QSizePolicy ::Maximum );
-    QPalette pal = QPalette();
-    pal.setColor(QPalette::Window, Qt::green);
-    fake_widget->setAutoFillBackground(true);
-    fake_widget->setPalette(pal);
     setCentralWidget(fake_widget);
 
     // main layout setup
@@ -23,7 +19,18 @@ MainWindow::MainWindow(QWidget *parent)
 
     h_layout->addWidget(sideBarWidget_, 1);
     h_layout->addWidget(mainContentWidget_, 4);
-    h_layout->setSpacing(0);
+
+    QPalette pal = QPalette();
+    pal.setColor(QPalette::Window, Qt::green);
+    fake_widget->setAutoFillBackground(true);
+    fake_widget->setPalette(pal);
+
+    connect(sideBarWidget_, &SideBarWidget::BtnClick, this, &MainWindow::clickBtn);
 }
 
 MainWindow::~MainWindow() {}
+
+void MainWindow::clickBtn() {
+    qDebug() << "btn ok";
+    mainContentWidget_->toggleView();
+}

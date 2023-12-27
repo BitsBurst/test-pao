@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include "SideBarWidget.h"
+
 SideBarWidget::SideBarWidget(QWidget *parent): QWidget(parent){
     std::list<QPushButton*> buttonList;
     QVBoxLayout* layout = new QVBoxLayout(this);
@@ -20,6 +21,12 @@ SideBarWidget::SideBarWidget(QWidget *parent): QWidget(parent){
         buttonList.push_front(new QPushButton(name));
         layout->addWidget(buttonList.front(), 1);
         buttonList.front()->show();
+        connect(buttonList.front(), &QPushButton::clicked, this, &SideBarWidget::clickBtn);
     }
-    setSizePolicy(QSizePolicy ::Expanding , QSizePolicy ::Expanding );
+    setSizePolicy(QSizePolicy ::Expanding , QSizePolicy ::Expanding);
+}
+
+void SideBarWidget::clickBtn() {
+    qDebug() << "btn clicked";
+    emit BtnClick();
 }

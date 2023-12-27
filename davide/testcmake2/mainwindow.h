@@ -17,5 +17,7 @@ private:
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    void clickBtn();
 };
 #endif // MAINWINDOW_H

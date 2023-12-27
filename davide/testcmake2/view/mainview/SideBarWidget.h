@@ -12,6 +12,10 @@ class SideBarWidget: public QWidget{
     Q_OBJECT
 public:
     SideBarWidget(QWidget* = 0);
+private:
+void clickBtn();
+signals:
+void BtnClick();
 };
 
 

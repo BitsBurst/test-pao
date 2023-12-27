@@ -7,11 +7,16 @@
 
 
 #include <QWidget>
+#include "CreateView.h"
+#include "ModifyView.h"
+#include "ContainerManagerAbstract.h"
 
-class MainContentWidget: public QWidget{
+class MainContentWidget: public ContainerManagerAbstract{
     Q_OBJECT
 public:
     MainContentWidget(QWidget* = 0);
+    void toggleView();
+private:
 };
 
 

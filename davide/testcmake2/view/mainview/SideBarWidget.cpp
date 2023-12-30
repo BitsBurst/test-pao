@@ -5,7 +5,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include "SideBarWidget.h"
-
+#include <QtQuickControls2/QtQuickControls2>
 SideBarWidget::SideBarWidget(QWidget *parent): QWidget(parent){
     std::list<QPushButton*> buttonList;
     QVBoxLayout* layout = new QVBoxLayout(this);

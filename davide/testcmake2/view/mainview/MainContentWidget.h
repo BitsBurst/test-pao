@@ -17,6 +17,8 @@ public:
     MainContentWidget(QWidget* = 0);
     void toggleView();
 private:
+    ViewAbstract *createView;
+    ViewAbstract *modifyView;
 };
 
 

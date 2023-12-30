@@ -15,12 +15,11 @@ class ContainerManagerAbstract: public QWidget{
 public:
     ContainerManagerAbstract(QWidget* = 0);
 private:
-    std::unordered_map<std::string, ViewAbstract*> viewList;
+    ViewAbstract* currentView;
     QVBoxLayout* layout;
 protected:
-    void addView(ViewAbstract*);
-    ViewAbstract* getView(const std::string& view);
-    void setInitialView(const std::string& view);
+    void setView(ViewAbstract* view);
+    ViewAbstract* getCurrentView();
 };
 
 

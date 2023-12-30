@@ -4,23 +4,24 @@
 
 #include "ContainerManagerAbstract.h"
 
-ContainerManagerAbstract::ContainerManagerAbstract(QWidget *p): QWidget(p), layout(new QVBoxLayout(this)) {
+ContainerManagerAbstract::ContainerManagerAbstract(QWidget *p): QWidget(p), layout(new QVBoxLayout(this)), currentView(
+        nullptr) {
     layout->setAlignment(Qt::AlignHCenter | Qt::AlignCenter);
     setLayout(layout);
     setSizePolicy(QSizePolicy:: MinimumExpanding, QSizePolicy ::Expanding );
 }
 
-void ContainerManagerAbstract::addView(ViewAbstract *view) {
-    viewList[typeid(*view).name()] = view;
+void ContainerManagerAbstract::setView(ViewAbstract *view) {
     layout->addWidget(view);
+    if(currentView != nullptr)
+    currentView->setVisible(false);
+    view->setVisible(true);
+    if(currentView != nullptr)
+    layout->removeWidget(currentView);
+    currentView = view;
 }
 
-ViewAbstract* ContainerManagerAbstract::getView(const std::string& view) {
-    return viewList.find(view) != viewList.end() ? viewList[view] : nullptr;
-}
-
-void ContainerManagerAbstract::setInitialView(const std::string &view) {
-    if(viewList.find(view) != viewList.end())
-        viewList[view]->setVisible(true);
+ViewAbstract *ContainerManagerAbstract::getCurrentView() {
+    return currentView;
 }
 

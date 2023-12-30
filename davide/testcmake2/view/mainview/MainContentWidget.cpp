@@ -5,7 +5,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include "MainContentWidget.h"
-MainContentWidget::MainContentWidget(QWidget *parent): ContainerManagerAbstract(parent){
+MainContentWidget::MainContentWidget(QWidget *parent): ContainerManagerAbstract(parent), modifyView(new ModifyView), createView(new CreateView){
     /*for(int i = 0; i < 10; i++){
         QString name = "Button ";
         name += std::to_string(i);
@@ -17,17 +17,13 @@ MainContentWidget::MainContentWidget(QWidget *parent): ContainerManagerAbstract(
     pal.setColor(QPalette::Window, Qt::yellow);
     setAutoFillBackground(true);
     setPalette(pal);
-    addView(new ModifyView);
-    addView(new CreateView);
-    setInitialView(typeid(ModifyView).name());
+    setView(createView);
 }
 
 void MainContentWidget::toggleView() {
-    if(!getView(typeid(ModifyView).name())->isVisible()){
-        getView(typeid(ModifyView).name())->setVisible(true);
-        getView(typeid(CreateView).name())->setVisible(false);
+    if(getCurrentView() == modifyView){
+        setView(createView);
     }else{
-        getView(typeid(ModifyView).name())->setVisible(false);
-        getView(typeid(CreateView).name())->setVisible(true);
+        setView(modifyView);
     }
 }
